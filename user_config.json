@@ -1,0 +1,63 @@
+{
+  "cameras": {
+    "front": {
+      "source": "http://192.168.1.59:8080/video",
+      "type": "webcam",
+      "role": "front",
+      "rotation": 90,
+      "zoom": 0.7,
+      "notes": "source: device index (int) or URL (string). protocol: 'tcp' (http://) or 'udp' (udp://) for IP cameras. rotation: 0/90/180/270. zoom: 1.0=no change, <1.0=zoom out.",
+      "protocol": "tcp"
+    },
+    "side": {
+      "source": 0,
+      "type": "phone",
+      "role": "side",
+      "side": "right",
+      "rotation": 90,
+      "zoom": 0.7,
+      "notes": "protocol: 'tcp' or 'udp'. side: 'left' or 'right'. Set source to null to disable.",
+      "protocol": "tcp"
+    }
+  },
+  "calibration": {
+    "camera_distance_meters": 2.0,
+    "user_height_meters": 1.75,
+    "notes": "camera_distance_meters: real-world distance between front and side cameras. user_height_meters: your height in meters."
+  },
+  "osc": {
+    "ip": "127.0.0.1",
+    "port": 9000,
+    "notes": "protocol: 'udp' (default, low latency, LAN) or 'tcp' (reliable, works over internet/mobile data). ip: 127.0.0.1 for same PC, headset LAN IP for local Quest, public IP for remote.",
+    "protocol": "udp"
+  },
+  "smoothing": {
+    "enabled": true,
+    "factor": 0.5,
+    "notes": "0.0 = no smoothing (raw/jittery), 1.0 = maximum smoothing (very laggy). 0.4-0.6 recommended."
+  },
+  "trackers": {
+    "_note": "VRChat OSC supports exactly 8 tracker slots. See https://docs.vrchat.com/docs/osc-trackers",
+    "_note2": "Recommendation: start with just hips+feet. Add more only if your tracking is accurate enough.",
+    "hips": true,
+    "left_foot": true,
+    "right_foot": true,
+    "left_knee": false,
+    "right_knee": false,
+    "chest": false,
+    "left_elbow": false,
+    "right_elbow": false,
+    "head": false,
+    "_unsupported_note": "The trackers below have NO VRChat OSC slot \u2014 tracked internally but never sent.",
+    "left_wrist": false,
+    "right_wrist": false,
+    "left_shoulder": false,
+    "right_shoulder": false
+  },
+  "display": {
+    "show_front_feed": true,
+    "show_side_feed": true,
+    "show_skeleton_overlay": true,
+    "notes": "Toggle camera preview windows and skeleton overlay. Disabling can improve performance."
+  }
+}
